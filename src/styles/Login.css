@@ -1,0 +1,98 @@
+ /* --- Contenedor Principal (Tarjeta del Formulario) --- */
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px); /* Ajusta la altura para el header y footer */
+    padding: 20px 10px;
+}
+
+.login-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: var(--border-radius, 8px);
+    box-shadow: var(--box-shadow, 0 8px 16px rgba(0, 0, 0, 0.1));
+    width: 100%;
+    max-width: 400px; /* Ancho máximo para el formulario */
+    text-align: center;
+}
+
+.login-card h2 {
+    color: var(--primary-color, #6a1b9a);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* --- Grupos de Formulario --- */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color, #333);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius, 8px);
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho */
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color, #6a1b9a);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(106, 27, 154, 0.2);
+}
+
+/* --- Botón de Acceso --- */
+.login-button {
+    width: 100%;
+    /* Estilos heredados del app.css (padding, color, etc.) */
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.login-button:disabled {
+    background-color: #bdbdbd;
+    cursor: not-allowed;
+}
+
+/* --- Enlace de Registro y Mensajes de Error --- */
+.register-link, .forgot-password-link {
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.register-link a, .forgot-password-link a {
+    color: var(--link-color, #007bff);
+    font-weight: 500;
+}
+
+.error-message {
+    background-color: #fce4e4;
+    color: #cc0000;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* --- Responsividad (Móvil) --- */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 20px;
+        box-shadow: none; /* Eliminar sombra en móvil para una vista más limpia */
+        border-radius: 0;
+    }
+}
