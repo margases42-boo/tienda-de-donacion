@@ -16,7 +16,7 @@ const Navbar = ({ isOpen, userStatus }) => {
     <nav className={navClass}>
       <ul>
         <li><NavLink to="/">Tienda</NavLink></li>
-        <li><NavLink to="/donar">Donar Ropa</NavLink></li>
+        <li><NavLink to="/donate">Donar Ropa</NavLink></li>
         
         {/* Enlaces que solo ve el usuario autenticado (Vendedor/Usuario) */}
         {userStatus === 'authenticated' && (

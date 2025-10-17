@@ -30,8 +30,8 @@ const Marketplace = () => {
                 <h1>Bienvenido a nuestro Marketplace</h1>
                 <p>Encuentra ropa increíble, vende lo que ya no usas y ayuda al planeta.</p>
                 <div className="cta-buttons">
-                    <a href="/new-product" className="btn-primary">Vende tu ropa</a>
-                    <a href="/donate" className="btn-secondary">Dona tu ropa</a>
+                    <Link to="/new-product" className="btn-primary">Vende tu ropa</Link>
+                    <Link to="/donate" className="btn-secondary">Dona tu ropa</Link>
                 </div>
             </header>
 
@@ -57,7 +57,7 @@ const Marketplace = () => {
                         <div key={store.id} className="store-card">
                             <img src={store.logo} alt={store.name} />
                             <h3>{store.name}</h3>
-                            <a href={`/store/${store.id}`} className="btn-details">Visitar tienda</a>
+                            <Link to={`/store/${store.id}`} className="btn-details">Visitar tienda</Link>
                         </div>
                     ))}
                 </div>
