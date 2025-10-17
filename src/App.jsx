@@ -13,6 +13,7 @@ import NewProductPage from './pages/marketplace/NewProductPage';
 import StorePage from './pages/marketplace/StorePage';
 import DonationHistoryPage from "./pages/DonationHistoryPage";
 import SalesStats from './pages/user/SalesStats';
+import UserProfile from './pages/user/UserProfile';
 // Importa componentes comunes de la interfaz (Header, Footer, etc.)
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
@@ -33,7 +34,8 @@ function App() {
           <Route path="/new-product" element={<NewProductPage />} />
           <Route path="/store/:storeId" element={<StorePage />} />
          <Route path="/historial-donaciones" element={<DonationHistoryPage />} />
-
+          <Route path='/cuenta-del-usuario' element={<UserProfile/>}/>
+          
           {/* Rutas de usuario autenticado (requiere protección) */}
           <Route path="/mi-tienda" element={<StoreSetup />} />
           <Route path="/vender" element={<NewProductPage />} />
