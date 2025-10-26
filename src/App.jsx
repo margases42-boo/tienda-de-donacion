@@ -14,6 +14,8 @@ import StorePage from './pages/marketplace/StorePage';
 import DonationHistoryPage from "./pages/DonationHistoryPage";
 import SalesStats from './pages/user/SalesStats';
 import UserProfile from './pages/user/UserProfile';
+import MoneyDonation from './pages/admin/MoneyDonation';
+
 // Importa componentes comunes de la interfaz (Header, Footer, etc.)
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
@@ -43,6 +45,7 @@ function App() {
 
           {/* Rutas de administrador (requiere protección) */}
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path='/donacion-monetaria' element={<MoneyDonation/>} />
 
           {/* Manejo de rutas no encontradas */}
           <Route path="*" element={<h1>404 - Página no encontrada</h1>} />

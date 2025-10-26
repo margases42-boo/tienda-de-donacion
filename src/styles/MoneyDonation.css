@@ -1,0 +1,240 @@
+
+:root {
+    --primary-color: #007bff; 
+    --secondary-color: #6c757d; 
+    --background-color: #f8f9fa; 
+    --card-background: #ffffff; 
+    --border-color: #dee2e6;
+    --success-color: #28a745;
+}
+
+
+.donation-page {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    border-radius: 8px;
+}
+
+.donation-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--card-background);
+    border-bottom: 3px solid var(--primary-color);
+    border-radius: 8px 8px 0 0;
+}
+
+.donation-header h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.donation-header p {
+    color: var(--secondary-color);
+    line-height: 1.5;
+}
+
+.donation-form-container {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.donation-form h2 {
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 25px;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+
+.donation-form input[type="text"],
+.donation-form input[type="number"],
+.donation-form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-sizing: border-box; 
+    transition: border-color 0.3s;
+}
+
+.donation-form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+
+.custom-amount-input input {
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.custom-amount-input input.selected-custom {
+    border: 2px solid var(--primary-color);
+}
+
+
+.current-amount {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 25px 0;
+    padding: 10px;
+    border: 1px dashed var(--secondary-color);
+    border-radius: 5px;
+}
+
+
+.amount-buttons {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    justify-content: center; 
+}
+
+.amount-button {
+    flex-grow: 1; 
+    min-width: 80px; 
+    padding: 12px 15px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--card-background);
+    color: var(--primary-color);
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.amount-button:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.amount-button.selected {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    border-color: var(--primary-color);
+}
+
+
+
+.payment-options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    cursor: pointer;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.payment-option:hover {
+    border-color: var(--primary-color);
+}
+
+.payment-option input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2); 
+}
+
+.security-note {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    margin-top: 15px;
+    padding-left: 5px;
+}
+
+
+.donate-button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--success-color); 
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 25px;
+}
+
+.donate-button:hover {
+    background-color: #1e7e34; 
+}
+
+.donate-button:active {
+    transform: translateY(1px);
+}
+
+.donation-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 0.8em;
+    color: var(--secondary-color);
+}
+
+
+
+@media (max-width: 600px) {
+    .donation-page {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .donation-form-container {
+        padding: 20px 15px;
+    }
+
+    
+    .amount-buttons {
+        gap: 8px;
+    }
+    
+    .amount-button {
+        flex-basis: calc(50% - 4px); 
+        min-width: unset;
+        font-size: 1em;
+    }
+    
+    
+    .amount-buttons .amount-button:last-child:nth-child(3) {
+        flex-basis: 100%;
+    }
+
+    
+    .payment-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .donate-button {
+        font-size: 1.1em;
+        padding: 12px;
+    }
+}
