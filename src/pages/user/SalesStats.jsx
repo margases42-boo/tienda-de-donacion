@@ -1,4 +1,4 @@
- 
+
 import React, { useState, useEffect } from 'react';
 import '../../styles/SalesStats.css';
 import { Bar, Pie } from 'react-chartjs-2';
@@ -8,10 +8,12 @@ const SalesStats = () => {
     const [stats, setStats] = useState(null);
 
     useEffect(() => {
-        // En una app real, harías una llamada a la API para obtener las estadísticas de ventas
+        // 1. Cambio en el useEffect (Mock Data)
+        // Datos iniciales simulados
         const fetchedStats = {
             totalSales: 1540,
             totalItemsSold: 45,
+            totalOrders: 38, // 1. Métrica de pedidos agregada
             mostPopularItem: { name: 'Vestido de verano', salesCount: 12 },
             salesByMonth: [
                 { month: 'Ene', sales: 120 },
@@ -28,13 +30,52 @@ const SalesStats = () => {
                 { category: 'Camisas', count: 9 },
             ]
         };
+        
+        // Establecer el estado inicial
         setStats(fetchedStats);
-    }, []);
+
+        // 2. Cambio en el useEffect (Lógica de Simulación)
+        // Simular actualización de datos cada 3 segundos
+        const interval = setInterval(() => {
+            setStats(prevStats => {
+                // Si el estado anterior no existe, no hagas nada
+                if (!prevStats) return null;
+
+                // Simular nuevos datos
+                const newSales = prevStats.totalSales + Math.floor(Math.random() * 50) + 10;
+                const newOrders = prevStats.totalOrders + 1;
+                const newItems = prevStats.totalItemsSold + Math.floor(Math.random() * 3) + 1;
+
+                // Simular actualización del último mes en el gráfico de barras
+                const newSalesByMonth = [...prevStats.salesByMonth];
+                const lastMonthIndex = newSalesByMonth.length - 1;
+                
+                // Actualizar las ventas del último mes
+                newSalesByMonth[lastMonthIndex] = {
+                    ...newSalesByMonth[lastMonthIndex],
+                    sales: newSalesByMonth[lastMonthIndex].sales + Math.floor(Math.random() * 30) + 5
+                };
+
+                return {
+                    ...prevStats,
+                    totalSales: newSales,
+                    totalOrders: newOrders,
+                    totalItemsSold: newItems,
+                    salesByMonth: newSalesByMonth
+                };
+            });
+        }, 3000); // Actualiza cada 3 segundos
+
+        // Detener la simulación cuando el componente se desmonte
+        return () => clearInterval(interval);
+
+    }, []); // El array vacío asegura que esto se ejecute solo una vez (al montar)
 
     if (!stats) {
         return <div className="loading-container">Cargando estadísticas...</div>;
     }
 
+    // --- Configuración de Gráficos (sin cambios) ---
     const monthlySalesData = {
         labels: stats.salesByMonth.map(item => item.month),
         datasets: [{
@@ -74,18 +115,31 @@ const SalesStats = () => {
                 <p>Análisis detallado de tu desempeño como vendedor.</p>
             </header>
 
+            {/* 2. Cambio en la Interfaz (UI) - Tarjetas actualizadas */}
             <section className="summary-cards">
                 <div className="summary-card">
                     <h3>Ventas Totales</h3>
-                    <p className="summary-value">${stats.totalSales}</p>
+                    {/* Clase "sales" añadida */}
+                    <p className="summary-value sales">${stats.totalSales}</p>
                 </div>
+                
+                {/* Tarjeta "Número de Pedidos" AÑADIDA */}
+                <div className="summary-card">
+                    <h3>Número de Pedidos</h3>
+                    {/* Clase "orders" añadida */}
+                    <p className="summary-value orders">{stats.totalOrders}</p>
+                </div>
+
                 <div className="summary-card">
                     <h3>Artículos Vendidos</h3>
-                    <p className="summary-value">{stats.totalItemsSold}</p>
+                    {/* Clase "items" añadida */}
+                    <p className="summary-value items">{stats.totalItemsSold}</p>
                 </div>
+                
                 <div className="summary-card">
                     <h3>Más Popular</h3>
-                    <p className="summary-value">{stats.mostPopularItem.name} ({stats.mostPopularItem.salesCount} ventas)</p>
+                    {/* Clase "popular" añadida */}
+                    <p className="summary-value popular">{stats.mostPopularItem.name} ({stats.mostPopularItem.salesCount} ventas)</p>
                 </div>
             </section>
 
