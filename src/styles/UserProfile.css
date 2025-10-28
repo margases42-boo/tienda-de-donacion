@@ -49,6 +49,24 @@
 }
 
 /* Sección de Notificaciones */
+.simulate-sale-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.simulate-sale-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
 .notifications-list {
     list-style: none;
     padding: 0;
@@ -57,11 +75,9 @@
 .notification-item {
     background-color: #e8f5e9;
     border-left: 5px solid #4caf50;
-    padding: 15px;
+    padding: 15px 20px;
     margin-bottom: 10px;
     border-radius: 5px;
-    display: flex;
-    align-items: center;
     transition: transform 0.2s;
 }
 
@@ -72,6 +88,99 @@
 .notification-item.sale { border-color: #f44336; background-color: #ffebee; }
 .notification-item.store_approved { border-color: #2196f3; background-color: #e3f2fd; }
 .notification-item.message { border-color: #ffc107; background-color: #fffde7; }
+
+/* Estilos para detalles de venta */
+.sale-notification-details p {
+    margin: 4px 0;
+    line-height: 1.4;
+    color: #555;
+}
+.sale-notification-details p:first-child {
+    font-size: 1.15em;
+    color: #d9534f; /* Rojo oscuro */
+    margin-bottom: 8px;
+}
+.sale-notification-details strong {
+    color: #333;
+}
+.sale-notification-details small {
+    color: #777;
+    font-style: italic;
+}
+
+/* Nueva Sección de Configuración */
+.settings-section .settings-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.settings-section label {
+    font-size: 1.1em;
+    color: #333;
+    margin-right: 15px;
+    flex-grow: 1;
+}
+
+.settings-status {
+    margin-top: 10px;
+    color: #666;
+    font-size: 0.9em;
+}
+.settings-status strong {
+    color: #007bff;
+}
+
+/* Estilo de Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
 
 /* Sección de Panel */
 .dashboard-grid {
@@ -119,5 +228,12 @@
     }
     .profile-header h1 {
         font-size: 2em;
+    }
+    .settings-section .settings-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .settings-section .toggle-switch {
+        margin-top: 15px;
     }
 }
