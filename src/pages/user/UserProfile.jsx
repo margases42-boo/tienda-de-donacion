@@ -50,7 +50,7 @@ const UserProfile = () => {
         setNotifications(prevNotifications => [newSale, ...prevNotifications]);
     };
 
-    // 5. Añadimos una función toggleEmailAlerts
+    // Añadimos una función toggleEmailAlerts
     const toggleEmailAlerts = () => {
         setEmailAlertsEnabled(prev => !prev);
     };
@@ -71,11 +71,26 @@ const UserProfile = () => {
             
             <section className="profile-section notifications-section">
                 <h2>Mis Notificaciones</h2>
+               {/* [AÑADIDO] Botón para la Simulación */}
+                <button onClick={simulateSale} className="simulate-sale-btn">
+                    Simular Nueva Venta ⚡
+                </button>
                 {notifications.length > 0 ? (
                     <ul className="notifications-list">
+                     {/*Renderizado Detallado de Notificaciones*/}
                         {notifications.map(notif => (
                             <li key={notif.id} className={`notification-item ${notif.type}`}>
-                                <p>{notif.message}</p>
+                                {notif.type === 'sale' ? (
+                                    <div className="sale-notification-details">
+                                        <p><strong>¡Venta Realizada! 📈</strong></p>
+                                        <p><strong>Producto:</strong> {notif.productName}</p>
+                                        <p><strong>Cantidad:</strong> {notif.quantity}</p>
+                                        <p><strong>Comprador:</strong> {notif.buyerName}</p>
+                                        <p><small>Fecha: {notif.transactionTime}</small></p>
+                                    </div>
+                                ) : (
+                                    <p>{notif.message}</p>
+                                )}
                             </li>
                         ))}
                     </ul>
