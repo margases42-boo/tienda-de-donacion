@@ -199,6 +199,52 @@
     color: var(--secondary-color);
 }
 
+/* --- [AÑADIDOS] ESTILOS para Mensajes de Error y Éxito --- */
+
+.error-message-donation {
+    background-color: #f8d7da; /* Bootstrap 'danger' bg */
+    color: #721c24; /* Bootstrap 'danger' text */
+    border: 1px solid #f5c6cb; /* Bootstrap 'danger' border */
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.success-message-donation {
+    text-align: center;
+    padding: 40px 30px;
+    background-color: #d4edda; /* Bootstrap 'success' bg */
+    border-radius: 8px;
+    border: 1px solid #c3e6cb; /* Bootstrap 'success' border */
+}
+
+.success-message-donation h2 {
+    color: var(--success-color); /* Usa la variable de :root */
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.success-message-donation p {
+    font-size: 1.1em;
+    color: #155724; /* Bootstrap 'success' text */
+    line-height: 1.6;
+}
+
+.success-email-donation {
+    color: var(--primary-color); /* Usa la variable de :root */
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.redirect-message-donation {
+    font-style: italic;
+    color: #666;
+    margin-top: 20px;
+    font-size: 0.95em !important;
+}
+/* --- Fin de estilos añadidos --- */
 
 
 @media (max-width: 600px) {
