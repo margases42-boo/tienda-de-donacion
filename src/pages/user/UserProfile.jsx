@@ -6,6 +6,8 @@ import '../../styles/UserProfile.css';
 const UserProfile = () => {
     const [user, setUser] = useState(null);
     const [notifications, setNotifications] = useState([]);
+   //Agregamos un estado para la configuración
+ const [emailAlertsEnabled, setEmailAlertsEnable] = useState(true);
 
     useEffect(() => {
         // En una app real, harías una llamada a la API para obtener los datos del usuario
@@ -16,7 +18,16 @@ const UserProfile = () => {
             joinedDate: '2025-04-15',
             storeName: 'Tienda de Luz'
         };
+        //Actualizamos la estructura de fetchedNotifications
         const fetchedNotifications = [
+         {
+            id: 1,
+            type: 'sale',
+            productName: 'Vestido de verano',
+            quantity: 1,
+            transactionTime: '2025-10-28 10:30:00',
+            buyerName: 'Ana Gómez',
+         },
             { id: 1, message: '¡Felicidades! Se vendió tu artículo "Vestido de verano".', type: 'sale' },
             { id: 2, message: 'Tu tienda ha sido aprobada y ahora está en línea.', type: 'store_approved' },
             { id: 3, message: 'Tienes un nuevo mensaje de un comprador.', type: 'message' },
@@ -24,6 +35,25 @@ const UserProfile = () => {
         setUser(fetchedUser);
         setNotifications(fetchedNotifications);
     }, []);
+
+   // Simulamos la activación de la notificación (Función)
+    const simulateSale = () => {
+        const newSale = {
+            id: Date.now(), // ID único para la demo
+            type: 'sale',
+            productName: 'Chaqueta de Mezclilla',
+            quantity: 1,
+            transactionTime: new Date().toLocaleString('es-ES'), // Hora actual
+            buyerName: 'Carlos Ruiz',
+        };
+        // Añadimos la nueva notificación al inicio de la lista
+        setNotifications(prevNotifications => [newSale, ...prevNotifications]);
+    };
+
+    // 5. Añadimos una función toggleEmailAlerts
+    const toggleEmailAlerts = () => {
+        setEmailAlertsEnabled(prev => !prev);
+    };
 
     if (!user) {
         return <div className="loading-container">Cargando perfil...</div>;
@@ -52,6 +82,28 @@ const UserProfile = () => {
                 ) : (
                     <p>No tienes notificaciones nuevas.</p>
                 )}
+            </section>
+
+            {/* 5. Creamos una Nueva Sección en el Render para Configuración */}
+            <section className="profile-section settings-section">
+                <h2>Configuración de Alertas</h2>
+                <div className="settings-item">
+                    <label htmlFor="emailToggle">
+                        Recibir notificaciones de ventas por correo electrónico
+                    </label>
+                    <div className="toggle-switch">
+                        <input
+                            type="checkbox"
+                            id="emailToggle"
+                            checked={emailAlertsEnabled}
+                            onChange={toggleEmailAlerts}
+                        />
+                        <label htmlFor="emailToggle" className="slider"></label>
+                     </div>
+                </div>
+                <p className="settings-status">
+                    Alertas por correo: {emailAlertsEnabled ? <strong>Activadas</strong> : <strong>Desactivadas</strong>}
+                </p>
             </section>
 
             <section className="profile-section dashboard-links">
