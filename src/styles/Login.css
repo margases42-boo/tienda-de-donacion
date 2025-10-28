@@ -1,9 +1,10 @@
- /* --- Contenedor Principal (Tarjeta del Formulario) --- */
+/* --- Contenedor Principal (Tarjeta del Formulario) --- */
 .login-page-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 120px); /* Ajusta la altura para el header y footer */
+    min-height: calc(100vh - 120px);
+    /* Ajusta la altura para el header y footer */
     padding: 20px 10px;
 }
 
@@ -13,7 +14,8 @@
     border-radius: var(--border-radius, 8px);
     box-shadow: var(--box-shadow, 0 8px 16px rgba(0, 0, 0, 0.1));
     width: 100%;
-    max-width: 400px; /* Ancho máximo para el formulario */
+    max-width: 400px;
+    /* Ancho máximo para el formulario */
     text-align: center;
 }
 
@@ -42,7 +44,8 @@
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: var(--border-radius, 8px);
-    box-sizing: border-box; /* Asegura que el padding no aumente el ancho */
+    box-sizing: border-box;
+    /* Asegura que el padding no aumente el ancho */
     transition: border-color 0.3s ease;
 }
 
@@ -68,12 +71,14 @@
 }
 
 /* --- Enlace de Registro y Mensajes de Error --- */
-.register-link, .forgot-password-link {
+.register-link,
+.forgot-password-link {
     margin-top: 20px;
     font-size: 0.95rem;
 }
 
-.register-link a, .forgot-password-link a {
+.register-link a,
+.forgot-password-link a {
     color: var(--link-color, #007bff);
     font-weight: 500;
 }
@@ -88,11 +93,18 @@
     text-align: center;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* --- Responsividad (Móvil) --- */
 @media (max-width: 480px) {
     .login-card {
         padding: 20px;
-        box-shadow: none; /* Eliminar sombra en móvil para una vista más limpia */
+        box-shadow: none;
+        /* Eliminar sombra en móvil para una vista más limpia */
         border-radius: 0;
     }
 }

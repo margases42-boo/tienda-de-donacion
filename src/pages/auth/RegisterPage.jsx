@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import Register from '../../components/auth/Register';
 import '../../styles/Login.css'; // Reutilizamos estilos para el layout
 import { Link } from 'react-router-dom';
@@ -10,14 +10,11 @@ import { Link } from 'react-router-dom';
  */
 const RegisterPage = () => {
   return (
-    <div className="auth-page-container">
-        <div className="auth-card">
-            <h1 className="auth-title">Crea tu Cuenta y Tienda</h1>
-            <Register />
-            <p className="auth-link-text">
-                ¿Ya tienes una cuenta? <Link to="/login" className="auth-link">Inicia sesión</Link>
-            </p>
-        </div>
+    <div className="auth-page-container center">
+      <div className="auth-card">
+        <h1 className="auth-title">Crea tu Cuenta y Tienda</h1>
+        <Register />
+      </div>
     </div>
   );
 };
