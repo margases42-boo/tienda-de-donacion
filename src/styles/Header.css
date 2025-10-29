@@ -32,6 +32,24 @@
     cursor: pointer;
 }
 
+/* Estilos para el logo en móvil */
+.header-logo .text-movil {
+  display: none;
+}
+
+/* Media query para movil  */
+@media screen and (max-width: 480px) {
+  .header-logo .text-movil {
+    display: inline;
+  }
+  .header-logo .text-desktop {
+    display: none;
+  }
+  .auth-title {
+    font-size: 1.8 em;
+  }
+}
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;

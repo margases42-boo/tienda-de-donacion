@@ -21,7 +21,8 @@ const Header = () => {
     <header className="app-header">
       <div className="header-content">
         <div className="header-logo">
-          <Link to="/">Local Threads</Link>
+          <Link to="/" className="text-desktop">Local Threads</Link>
+          <Link to="/" className="text-movil">LT</Link>
         </div>
         
         {/* Botón de menú para dispositivos móviles */}

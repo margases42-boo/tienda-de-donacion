@@ -246,16 +246,16 @@
 }
 /* --- Fin de estilos añadidos --- */
 
+@media  screen and (max-width: 768px) {
+    .donation-form-container {
+        padding: 20px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}
 
 @media (max-width: 600px) {
-    .donation-page {
-        margin: 10px;
-        padding: 10px;
-    }
-
-    .donation-form-container {
-        padding: 20px 15px;
-    }
+  
 
     
     .amount-buttons {

@@ -139,10 +139,12 @@
 /* --- Responsividad --- */
 @media (max-width: 768px) {
     .donation-form-container {
-        max-width: 95%;
+        max-width: 100%;
         padding: 20px;
+        box-shadow: none;
+        /* Eliminar sombra en móvil para una vista más limpia */
+        border-radius: 0;
     }
-    
     .donation-title {
         font-size: 1.75rem;
     }
@@ -183,3 +185,4 @@
     color: #1a7e1a;
     border: 1px solid #c3e6c3;
 }
+

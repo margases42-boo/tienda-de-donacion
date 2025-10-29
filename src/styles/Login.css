@@ -100,8 +100,8 @@
 }
 
 /* --- Responsividad (Móvil) --- */
-@media (max-width: 480px) {
-    .login-card {
+@media  screen and (max-width: 768px) {
+    .login-card, .donation-page {
         padding: 20px;
         box-shadow: none;
         /* Eliminar sombra en móvil para una vista más limpia */
