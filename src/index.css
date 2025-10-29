@@ -16,7 +16,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #ffffff; /* Se cambia el color para poder ver los links */
   text-decoration: inherit;
 }
 a:hover {
@@ -25,8 +25,8 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  /*display: flex;*/ /*se quita el flex para que el contenido se observe bien en dispositivos grandes*/
+  /*place-items: center;*/
   min-width: 320px;
   min-height: 100vh;
 }
